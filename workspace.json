@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "rick-n-morty": "apps/rick-n-morty",
+    "rick-n-morty-e2e": "apps/rick-n-morty-e2e"
+  }
+}

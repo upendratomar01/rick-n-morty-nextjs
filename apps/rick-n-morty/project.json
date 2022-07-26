@@ -1,0 +1,62 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/rick-n-morty",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/rick-n-morty",
+        "outputPath": "dist/apps/rick-n-morty"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "tmp/apps/rick-n-morty"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "rick-n-morty:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "rick-n-morty:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "rick-n-morty:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "rick-n-morty:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/rick-n-morty"],
+      "options": {
+        "jestConfig": "apps/rick-n-morty/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/rick-n-morty/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
