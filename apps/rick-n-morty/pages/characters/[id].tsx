@@ -8,14 +8,8 @@ export interface IdProps {
   data: ICharacter;
 }
 
-const StyledId = styled.div`
-  color: pink;
-`;
-
 export function CharacterDetail({ data }: IdProps) {
-  return (
-    <StyledId>{data ? <Card char={data} row={true} /> : <Spinner />}</StyledId>
-  );
+  return <div>{data ? <Card char={data} row={true} /> : <Spinner />}</div>;
 }
 
 export async function getServerSideProps({ query }: GetServerSidePropsContext) {

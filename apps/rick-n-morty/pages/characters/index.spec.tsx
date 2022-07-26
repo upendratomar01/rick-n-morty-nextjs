@@ -1,10 +1,10 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { IResult } from '../../interfaces';
-
+import '@testing-library/jest-dom';
 import Characters from './index';
 
 describe('Characters', () => {
-  it('should render successfully', () => {
+  it('should render successfully', async () => {
     const obj: IResult = {
       info: {
         count: 826,
@@ -37,7 +37,15 @@ describe('Characters', () => {
         },
       ],
     };
-    const { baseElement } = render(<Characters data={obj} />);
-    expect(baseElement).toBeTruthy();
+    render(<Characters data={obj} />);
+
+    const inputEL = screen.getByTestId('searchinput');
+    const sortEL = screen.getByTestId('sortinput');
+
+    const cardEL = await screen.findAllByText(/online/i);
+
+    expect(inputEL).toBeInTheDocument();
+    expect(sortEL).toBeInTheDocument();
+    expect(cardEL).toHaveLength(2);
   });
 });

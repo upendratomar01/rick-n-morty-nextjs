@@ -63,7 +63,7 @@ const StyledSpinner = styled.div`
 `;
 
 export function Spinner() {
-  return <StyledSpinner />;
+  return <StyledSpinner data-testid="spinner" />;
 }
 
 export default Spinner;

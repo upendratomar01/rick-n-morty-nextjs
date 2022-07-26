@@ -1,10 +1,11 @@
-import { render } from '@testing-library/react';
-
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Spinner from './spinner';
 
 describe('Spinner', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Spinner />);
-    expect(baseElement).toBeTruthy();
+    render(<Spinner />);
+    const baseElement = screen.getByTestId('spinner');
+    expect(baseElement).toBeInTheDocument();
   });
 });

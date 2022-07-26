@@ -1,6 +1,6 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { ICharacter } from '../../interfaces';
-
+import '@testing-library/jest-dom';
 import Card from './card';
 
 describe('Card', () => {
@@ -16,7 +16,9 @@ describe('Card', () => {
       created: '2 year ago',
       origin: { name: 'origin', url: 'test url' },
     };
-    const { baseElement } = render(<Card char={obj} row={true} />);
-    expect(baseElement).toBeTruthy();
+    render(<Card char={obj} row={true} />);
+
+    const baseElement = screen.getByText(/online/i);
+    expect(baseElement).toBeInTheDocument();
   });
 });

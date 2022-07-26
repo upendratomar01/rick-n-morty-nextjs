@@ -1,6 +1,6 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { ICharacter } from '../../interfaces';
-
+import '@testing-library/jest-dom';
 import CardList from './card-list';
 
 describe('CardList', () => {
@@ -29,7 +29,8 @@ describe('CardList', () => {
         origin: { name: 'origin', url: 'test url' },
       },
     ];
-    const { baseElement } = render(<CardList data={arr} />);
-    expect(baseElement).toBeTruthy();
+    render(<CardList data={arr} />);
+    const baseElement = screen.getByText(/female/i);
+    expect(baseElement).toBeInTheDocument();
   });
 });

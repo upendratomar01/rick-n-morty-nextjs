@@ -1,10 +1,10 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { ICharacter } from '../../interfaces';
-
+import '@testing-library/jest-dom';
 import { CharacterDetail } from './[id]';
 
 describe('Character detail', () => {
-  it('should render successfully', () => {
+  it('should render successfully', async () => {
     const obj: ICharacter = {
       id: 1,
       name: 'test',
@@ -16,7 +16,9 @@ describe('Character detail', () => {
       created: '2 year ago',
       origin: { name: 'origin', url: 'test url' },
     };
-    const { baseElement } = render(<CharacterDetail data={obj} />);
-    expect(baseElement).toBeTruthy();
+    render(<CharacterDetail data={obj} />);
+    const baseElement = screen.getByText(/online/i);
+
+    expect(baseElement).toBeInTheDocument();
   });
 });

@@ -47,7 +47,12 @@
       "outputs": ["coverage/apps/rick-n-morty"],
       "options": {
         "jestConfig": "apps/rick-n-morty/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "codeCoverage": true,
+        "onlyChanged": true,
+        "watch": true,
+        "watchAll": true,
+        "updateSnapshot": true
       }
     },
     "lint": {

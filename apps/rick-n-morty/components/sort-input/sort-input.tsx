@@ -34,8 +34,10 @@ const StyledLabel = styled.label`
 export function SortInput({ onChange }: SortInputProps) {
   return (
     <div>
-      <StyledLabel>Sort by ID</StyledLabel>
+      <StyledLabel htmlFor="sortinput">Sort by ID</StyledLabel>
       <StyledSortInput
+        id="sortinput"
+        data-testid="sortinput"
         defaultValue="asc"
         onChange={(e) => onChange(e.target.value)}
       >

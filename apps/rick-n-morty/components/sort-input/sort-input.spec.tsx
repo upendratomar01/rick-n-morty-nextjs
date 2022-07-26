@@ -1,10 +1,11 @@
-import { render } from '@testing-library/react';
-
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import SortInput from './sort-input';
 
 describe('SortInput', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<SortInput onChange={jest.fn} />);
-    expect(baseElement).toBeTruthy();
+    render(<SortInput onChange={jest.fn} />);
+    const baseElement = screen.getByTestId('sortinput');
+    expect(baseElement).toBeInTheDocument();
   });
 });

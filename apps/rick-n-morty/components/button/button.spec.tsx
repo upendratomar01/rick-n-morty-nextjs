@@ -1,10 +1,11 @@
-import { render } from '@testing-library/react';
-
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Button from './button';
 
 describe('Button', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Button onClick={jest.fn}>search</Button>);
-    expect(baseElement).toBeTruthy();
+    render(<Button onClick={jest.fn}>search</Button>);
+    const baseElement = screen.getByText(/search/i);
+    expect(baseElement).toBeInTheDocument();
   });
 });
