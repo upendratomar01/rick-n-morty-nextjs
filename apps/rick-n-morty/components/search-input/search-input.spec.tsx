@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-
 import SearchInput from './search-input';
 
 describe('SearchInput', () => {

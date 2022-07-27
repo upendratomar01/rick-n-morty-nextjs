@@ -11,7 +11,7 @@ export interface CharactersProps {
   data: IResult;
 }
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.section`
   padding: 1rem;
   display: flex;
   flex-direction: row;
@@ -20,7 +20,7 @@ const StyledHeader = styled.div`
   flex-wrap: wrap;
 `;
 
-const StyledBody = styled.div`
+const StyledBody = styled.section`
   margin: 1rem;
   min-height: 80vh;
   padding-bottom: 20px;
@@ -53,6 +53,10 @@ export function Characters({ data }: CharactersProps) {
     <>
       <Head>
         <title>Characters</title>
+        <meta
+          name="description"
+          content="rick and morty characters, rick, morty, chars, search, sort, find chars"
+        />
       </Head>
       <StyledHeader>
         <SearchInput onSearch={search} />

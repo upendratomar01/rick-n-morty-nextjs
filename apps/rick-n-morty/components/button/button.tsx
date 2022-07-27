@@ -14,7 +14,11 @@ const StyledButton = styled.button`
 `;
 
 export function Button({ onClick, children }: ButtonProps) {
-  return <StyledButton onClick={onClick}>{children}</StyledButton>;
+  return (
+    <StyledButton data-testid="btn" onClick={onClick}>
+      {children}
+    </StyledButton>
+  );
 }
 
 export default Button;

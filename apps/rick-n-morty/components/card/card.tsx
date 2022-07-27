@@ -5,7 +5,7 @@ import Image from 'next/image';
 import React from 'react';
 import moment from 'moment';
 
-export const StyledCardWrapper = styled.div<{ horizontal: boolean }>`
+export const StyledCardWrapper = styled.article<{ horizontal: boolean }>`
   overflow: hidden;
   display: flex;
   flex-direction: ${(props) => (props.horizontal ? 'row' : 'column')};
@@ -64,10 +64,10 @@ export const StyledCardItem = styled.div`
 
   p {
     &:first-child {
-      color: gray;
+      color: lightgray;
     }
     &:last-child {
-      color: #946019;
+      color: orange;
     }
   }
 

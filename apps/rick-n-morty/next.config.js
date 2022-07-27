@@ -8,6 +8,10 @@ const nextConfig = {
   images: {
     domains: ['rickandmortyapi.com'],
   },
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
+  },
   compiler: {
     styledComponents: true,
   },
