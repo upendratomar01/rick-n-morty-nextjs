@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { ICharacter } from '../../interfaces';
-import { CharacterDetail } from './[id]';
+import { ICharacter } from '../../../interfaces';
+import { CharacterDetail } from '../../../pages/characters/[id]';
 
 describe('Character detail', () => {
   it('should render successfully', async () => {

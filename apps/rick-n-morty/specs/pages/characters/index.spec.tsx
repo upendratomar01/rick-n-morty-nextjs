@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { IResult } from '../../interfaces';
-import Characters from './index';
+import { IResult } from '../../../interfaces';
+import Characters from '../../../pages/characters/index';
 
 describe('Characters', () => {
   it('should render successfully', async () => {
