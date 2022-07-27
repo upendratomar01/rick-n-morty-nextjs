@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import { IResult } from '../../interfaces';
-import '@testing-library/jest-dom';
 import Characters from './index';
 
 describe('Characters', () => {

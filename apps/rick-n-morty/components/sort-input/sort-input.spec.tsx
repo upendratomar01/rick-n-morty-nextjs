@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import SortInput from './sort-input';
 
 describe('SortInput', () => {
