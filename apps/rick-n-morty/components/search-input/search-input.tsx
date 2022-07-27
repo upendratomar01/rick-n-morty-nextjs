@@ -34,6 +34,7 @@ export function SearchInput({ onSearch }: SearchInputProps) {
         data-testid="searchinput"
         id="searchinput"
         type="text"
+        placeholder="search"
         onChange={(e) => setVal(e.target.value)}
         value={val}
         onKeyUp={(e) => onEnter(e)}

@@ -84,7 +84,7 @@ export interface CardProps {
 
 export function Card({ char, row, goto }: CardProps) {
   return (
-    <StyledCardWrapper horizontal={row} onClick={goto}>
+    <StyledCardWrapper horizontal={row} onClick={goto} data-testid="card">
       <StyledCardHeader>
         <Image src={char.image} alt={char.name} height={300} width={300} />
         {!row && (

@@ -23,15 +23,26 @@ export function CharacterDetail({ data }: IdProps) {
   );
 }
 
-export async function getServerSideProps({ query }: GetServerSidePropsContext) {
-  const { id } = query;
-
-  const result = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
+export async function getStaticPaths() {
+  const result = await fetch(`https://rickandmortyapi.com/api/character/`);
   const data = await result.json();
+  const paths = data.results.map((char) => ({
+    params: { id: char.id.toString() },
+  }));
+  return { paths, fallback: false };
+}
 
+export async function getStaticProps({ params }) {
+  const result = await fetch(
+    `https://rickandmortyapi.com/api/character/${params.id}`
+  );
+  const data = await result.json();
+  if (!data) {
+    return <Spinner />;
+  }
   return {
     props: {
-      data,
+      data: data,
     },
   };
 }
